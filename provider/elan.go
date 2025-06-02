@@ -16,7 +16,7 @@ type ElanInfo struct {
 
 // var _defaultElanInfo = ElanInfo{}
 
-func CheckElanInfo() (ElanInfo, error) {
+func CheckElan() (ElanInfo, error) {
 	// _defaultElanInfo = ElanInfo{Path: "elan"}
 	// return _defaultElanInfo, nil
 	cmd := exec.Command("elan", "--version")
@@ -26,6 +26,8 @@ func CheckElanInfo() (ElanInfo, error) {
 		return ElanInfo{}, err
 	}
 	var elanVersion = out.String()
+	elanVersion = strings.TrimSpace(elanVersion)
+	out.Reset()
 
 	cmd = exec.Command("elan", "toolchain", "list")
 	cmd.Stdout = &out

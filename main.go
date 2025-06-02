@@ -10,6 +10,7 @@ import (
 func main() {
 	fmt.Println("Hello lean-envy v0.0.1")
 
+	fmt.Println("检查 git 与 elan 的安装情况")
 	// 检查 git, elan
 	path, err := exec.LookPath("git")
 	if err != nil {
@@ -25,9 +26,15 @@ func main() {
 	}
 	fmt.Println("elan: \t", path)
 
-	elanInfo, err := provider.CheckElanInfo()
+	elanInfo, err := provider.CheckElan()
 	if err != nil {
 		fmt.Println("检查 elan 环境失败: ", err)
 	}
 	fmt.Println(elanInfo.ToString())
+
+	lakeFile, err := provider.GetLakeFile()
+	if err != nil {
+		fmt.Println("解析 lakefile 失败", err)
+	}
+	fmt.Println(lakeFile)
 }
