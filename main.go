@@ -11,7 +11,7 @@ import (
 func main() {
 	fmt.Println("Hello lean-envy v0.0.1")
 
-	fmt.Println("检查 git 与 elan 的安装情况") // TODO: Turning to gogit soon
+	fmt.Println("检查 git 与 elan 的安装情况")
 	// 检查 git, elan
 	path, err := exec.LookPath("git")
 	if err != nil {
