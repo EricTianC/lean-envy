@@ -32,5 +32,6 @@ go.work.sum
 # .vscode/
 
 lakefile.*
+!lakefile.go
 
 .lake
